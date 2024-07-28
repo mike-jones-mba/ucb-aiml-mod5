@@ -1,0 +1,145 @@
+
+
+
+
+
+
+
+                             § Mod 5 Coupon Analysis
+
+
+
+
+This study was conducted by Mike Jones as part of the 2H24 UC Berkeley AI/ML 
+course. It was submitted on Sat Jul 27 2024 to it's official location:
+
+    https://github.com/mike-jones-mba/ucb-aiml-mod5
+
+along with the acompanying data & analysis. 
+
+
+The following report briefly describes the follow on analysis to for the data set
+found in the UCI ML Reporsitory: 
+
+    https://archive.ics.uci.edu/dataset/603/in+vehicle+coupon+recommendation
+
+
+SUMMARY
+
+The main focus of the study was to examine the relationship between Drivers who frequent 
+Bars with the likelihood of having a Bar related coupon accepted. There were a number 
+of variables/columns/features that were considered and the same pattern clearly emerged 
+over and over again, namely that drivers who go to bars more frequently are more likely
+to have a bar coupon accepted. 
+
+
+
+
+DETAILS 
+
+The following questions [B2] - [B7] and responses can also be found in the acompanying 
+Jupyter Notebook. Note that [B7] is listed first in order to emphasize and state the 
+conclusion upfront, and then [B2] - [B6] supporting analysis is given afterwards. 
+
+
+[B7]  Based on these observations, what do you hypothesize about drivers who accepted the bar coupons?
+
+WHAT DO YOU HYPOTHESIZE ABOUT DRIVERS WHO ACCEPTED THE BAR COUPONS?
+
+My hypothesis is that drivers who go to bars more frequently are more likely to accept bar coupons. 
+
+Preliminary findings indicate that for businesses who would benefit from customer 
+incentives using bar coupons, it is to their advantage to identify, recruit and retain 
+drivers who regularly visit bars. Data supports the following conclusions:
+
+    [1] For drivers who frequent bars, there appears to be a 
+        2:1 split favoring bar coupon acceptance.
+
+    [2] For drivers who rarely visit bars, there appears to be a 
+        1:2 ratio yielding bar coupon acceptance disadvantage.
+
+Put simply - if you want people to use bar coupons, get drivers who go to bars. 
+
+
+NEXT STEPS AND RECOMMENDATIONS
+
+Further studies would be useful including gathering more data as well as refining 
+analytic techniques.
+
+Note that the analyst background is SQL and is a VI power user, and that unfamiliarity 
+with Pandas and Jupyter slowed development considerably. 
+
+Further training and education w.r.t. Pandas and NumPy (esp vector and 
+matrix arithmetic) will make development proceed much faster.
+
+Conduct further independent investigation for coupon types other than bar as well as other
+groupings of related features/variables. 
+
+
+
+
+
+[B2] What proportion of bar coupons were accepted?
+
+There were 2017 coupons of type "Bar", of which 827 coupons were accepted 
+and 1190 were not. 
+
+
+[B3] Compare the acceptance rate between those who went to a bar 3 or 
+     fewer times a month to those who went more.
+
+Drivers who frequent bars more than three times per month have a 73.2% BCAR (Bar 
+Coupon Acceptance Rate), however drivers who visit bars 3 or fewer times per month 
+have a 37.1% BCAR.
+
+[B4] Compare the acceptance rate between drivers who go to a bar more than 
+     once a month and are over the age of 25 to the all others.  Is there 
+     a difference?
+
+
+Let the criteria_b4 be "drivers who go to a bar more than once a month and are over 
+the age of 25."
+
+Then the drivers who meet this criteria have a BCAR of 69.5% compared to 33.5% for 
+all other drivers.
+
+
+[B5] Use the same process to compare the acceptance rate between drivers who go 
+     to bars more than once a month and had passengers that were not a kid and 
+     had occupations other than farming, fishing, or forestry. 
+
+
+Let the criteria_b5 be defined as  "drivers who go to bars more than once a month,
+and had passengers that were not a kid, and had occupations other than farming, 
+fishing, or forestry."
+
+Drivers matching criteria_b5 have a 71.3% BCAR, compared to a 29.6% BCAR for 
+drivers who do not meet critera_b5.
+
+
+
+[B6] Compare the acceptance rates between those drivers who:
+    [B6.1] go to bars more than once a month, had passengers that were not a kid, and were not widowed *OR*
+
+[1] match criteria no accept coupon
+[2] everyone else
+
+https://stackoverflow.com/questions/72262456/how-to-merge-groupby-with-original-dataframe
+
+out = (df.groupby(['company_id', 'Date'])
+       .transform(sum)
+       .rename(columns=lambda col: f'{col}_sum'))
+out = df.join(out)
+
+
+Let the criteria_b6 be defined as "drivers who go to bars more than once a month, and are 
+under the age of 30."
+
+Then drivers meeting criteria_b6 are observed to have a 72.1% BCAR as opposed to drivers
+who do not meet criteria_b6, who's BCAR is 34.5%.
+
+
+
+
+
+
