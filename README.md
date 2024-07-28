@@ -1,3 +1,7 @@
 # ucb-aiml-mod5
 
-[jup note](mod_5_coupon_analysis.ipynb)
+
+
+[preliminary report](Report_Mod5_Coupon.txt)
+[jupyter notebook](mod_5_coupon_analysis.ipynb) with the analysis
+[data](data/coupons.csv)
